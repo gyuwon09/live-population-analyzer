@@ -4,7 +4,6 @@ from ultralytics import YOLO
 import supervision as sv
 import time
 
-
 # 설정
 MODEL_NAME = "yolov8s.pt"
 VIDEO_SOURCE = "walking.mp4"
@@ -15,7 +14,7 @@ height = 700
 margin = 25
 
 # 최대 수용 가능 인원
-MAX_CAPACITY = 80
+MAX_CAPACITY = 50
 
 # 사람 검출 신뢰도
 CONFIDENCE_THRESHOLD = 0.45
@@ -116,11 +115,11 @@ while True:
     density = min(density, 100)
 
     # 혼잡도 단계
-    if density < 30:
+    if density < 10:
         status = "LOW"
         color = (0, 255, 0)
 
-    elif density < 70:
+    elif density < 30:
         status = "MEDIUM"
         color = (0, 255, 255)
 
@@ -158,7 +157,7 @@ while True:
     prev_time = current_time
 
     # 정보 표시
-    cv2.rectangle(annotated_frame, (20, 20), (420, 190), (30, 30, 30), -1)
+    cv2.rectangle(annotated_frame, (20, 20), (420, 210), (30, 30, 30), -1)
 
     cv2.putText(
         annotated_frame,
@@ -193,7 +192,7 @@ while True:
     cv2.putText(
         annotated_frame,
         f"FPS : {fps:.1f}",
-        (280, 150),
+        (40, 185),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.8,
         (255, 255, 255),
@@ -201,7 +200,7 @@ while True:
     )
 
     # 출력
-    cv2.imshow("CCTV Crowd Monitoring", annotated_frame)
+    cv2.imshow("live population analyzer", annotated_frame)
 
     key = cv2.waitKey(1)
 

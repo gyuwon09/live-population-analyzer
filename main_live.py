@@ -4,13 +4,11 @@ from ultralytics import YOLO
 import supervision as sv
 import time
 
-# 설정
+# 모델 설정
 MODEL_NAME = "yolov8s.pt"
 
-# 실시간 카메라
+# 실시간 카메라( 인덱스 넘버 입력하기 )
 VIDEO_SOURCE = 2
-# VIDEO_SOURCE = 1  # USB 카메라
-# VIDEO_SOURCE = "rtsp://아이피주소"
 
 # ROI 범위
 width = 1250
@@ -28,7 +26,6 @@ USE_ROI = True
 
 # 프레임 스킵
 FRAME_SKIP = 2
-
 
 # CPU 최적화
 cv2.setNumThreads(0)
