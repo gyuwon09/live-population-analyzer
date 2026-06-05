@@ -6,7 +6,7 @@ import time
 
 # 설정
 MODEL_NAME = "yolov8s.pt"
-VIDEO_SOURCE = "walking.mp4"
+VIDEO_SOURCE = "source/testvideo.mp4"
 
 # 가로 세로 범위
 width = 1250
